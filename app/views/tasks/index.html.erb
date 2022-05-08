@@ -1,0 +1,29 @@
+<h1>タスク一覧</h1>
+<%= link_to "新規登録", new_task_path, class: "btn btn-primary" %>
+
+<div class="mb-3">
+  <table class="table table-hover">
+    <thead class="thead-default">
+      <tr>
+        <th>name</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.name, task_path(task.id) %></td>
+          <td><%= task.created_at %></td>
+          <td><%= task.updated_at %></td>
+          <td>
+            <%= link_to "編集", edit_task_path(task.id), class: "btn btn-primary" %>
+            <%= link_to "削除", task_path(task.id), method: :delete, data: { confirm: "タスク「#{task.name}」を削除します。よろしいですか？" }, class: "btn btn-primary" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
