@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
+    <title>Taskleaf</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,24 +11,16 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <div class="container">
-        <%= link_to "", root_path, class: "navbar__brand navbar__mainLogo" %>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-md-auto align-items-center">
-            <li>
-              <%= link_to "投稿", "#", class: "btn btn-primary" %>
-            </li>
-            <li>
-              <%= link_to "", "#", class: "nav-link commonNavIcon profile-icon" %>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <nav class="app-title navbar navbar-expand-md navbar-light bg-light">
+      <div class="navbar-brand" href="#">Taskleaf</div>
     </nav>
-    <%= yield %>
+    <div class="container">
+      <% if flash.notice.present? %>
+        <div class="alert alert-success">
+          <%= flash.notice %>
+        </div>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>

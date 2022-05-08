@@ -1,0 +1,7 @@
+<h1>タスクの編集</h1>
+
+<div class="nav justify-content-end">
+  <%= link_to "タスク一覧", tasks_path, class: "nav-link" %>
+</div>
+
+<%= render partial: "form", locals: { task: @task } %>
